@@ -109,7 +109,6 @@ l_texture_lock(lua_State *L)
 	//printf("Strlen %d\n", strlen(pix));
 	int w,h;
 	SDL_QueryTexture(tex,NULL,NULL,&w,&h);
-	printf("h %d\n",h);
 	memcpy(pixels, pix, h*pitch);
 	pix = NULL;
 	pixels = NULL;
