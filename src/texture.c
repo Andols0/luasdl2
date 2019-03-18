@@ -95,7 +95,6 @@ void* pix;
 static int
 l_texture_lock(lua_State *L)
 {
-	/* XXX */
 	SDL_Texture *tex = commonGetAs(L, 1, TextureName, SDL_Texture *);
 	//unsigned long long int  pixels;
 	//pixels = (unsigned long long int  *)malloc(373248+1);
