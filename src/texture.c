@@ -90,14 +90,34 @@ l_texture_getColorMod(lua_State *L)
 	return 2;
 }
 
+void* pixels;
+void* pix;
 static int
 l_texture_lock(lua_State *L)
 {
 	/* XXX */
-
-	(void)L;
-
-	return 0;
+	SDL_Texture *tex = commonGetAs(L, 1, TextureName, SDL_Texture *);
+	//unsigned long long int  pixels;
+	//pixels = (unsigned long long int  *)malloc(373248+1);
+	int pitch;
+	//printf("Pitch1 %d\n", pitch);
+	if (SDL_LockTexture(tex, NULL, &pixels, &pitch) < 0)
+		printf("SDL_Init failed: %s\n", SDL_GetError());
+		//return commonPushSDLError(L, 0);
+	pix = luaL_checkstring(L, 2);
+	lua_pushstring(L, pix);
+	pitch = luaL_checkinteger(L, 3);
+	//printf("Strlen %d\n", strlen(pix));
+	int w,h;
+	SDL_QueryTexture(tex,NULL,NULL,&w,&h);
+	printf("h %d\n",h);
+	memcpy(pixels, pix, h*pitch);
+	pix = NULL;
+	pixels = NULL;
+	
+	 //printf("Pitch2 %d\n", pitch);
+	//printf("Pix2 %s\n", pixels);
+	return 1;
 }
 
 /*
