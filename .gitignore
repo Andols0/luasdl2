@@ -1,3 +1,10 @@
 build/
 copy.bat
-
+SDL/
+*.obj
+*.def
+.vscode/
+*.dll
+*.exp
+SDL.lib
+.gitignore
