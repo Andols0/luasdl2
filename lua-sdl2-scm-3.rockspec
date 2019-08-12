@@ -1,7 +1,7 @@
 package = "Lua-SDL2"
 version = "scm-3"
 source = {
-   url = "https://github.com/Andols0/luasdl2",
+   url = "git://github.com/Andols0/luasdl2",
    tag = "master"
    --md5 = "",
    --dir = "luasdl2-2.0.3-3"
